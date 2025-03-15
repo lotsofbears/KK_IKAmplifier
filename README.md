@@ -10,7 +10,6 @@ A BepInEx plugin for Koikatsu and Koikatsu Sunshine that gives an extra oomph to
 
 ## Incompatibilities
 * Animations with disabled IK.
-* Can behave weirdly in presence of [KK_AdvIKPlugin](https://github.com/OrangeSpork/AdvIKPlugin).
   
 ## Overview
 The plugin is meant for use with cross fader, either from [VRPlugin](https://github.com/IllusionMods/KKS_VR/) (works outside of vr too) or another plugin that can be found in different plugin suits for the game.
