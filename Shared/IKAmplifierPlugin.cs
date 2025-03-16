@@ -108,7 +108,7 @@ namespace Koik.IKAmplifier
         public static ConfigEntry<bool> ConfigRunOutsideH {  get; set; }
         public static ConfigEntry<bool> ConfigReloadCSV { get; set; }
 
-#endregion
+        #endregion
 
 
         private void Start()
@@ -639,21 +639,21 @@ namespace Koik.IKAmplifier
                     if (ik.solver.OnPostUpdate != null)
                     {
                         var actions = ik.solver.OnPostUpdate.GetInvocationList();
-                        if (actions.Any(d => d.Method.Name.StartsWith("<OnAnimatorChange>_", StringComparison.Ordinal)))
+
+                        if (actions.Any(d => d.Method.Name.Contains("OnAnimatorsChange")))
                         {
                             continue;
                         }
                     }
                     
 #if DEBUG
-                    LogDebug($"OnAnimatorChange:AddLookDan");
+                    LogDebug($"OnAnimatorsChange:AddLookDan");
 #endif
                     var methodDelegate = AccessTools.MethodDelegate<Action>(method, dan);
                     ik.solver.OnPostUpdate += () => methodDelegate();
                 }
             }
 #endif
-
         }
 
         private static void RunAfterUpdate(Action action, bool onEndFrame = false, int numberOfUpdates = 1)
@@ -678,11 +678,8 @@ namespace Koik.IKAmplifier
 #endif
 
             // To early for KKAPI.IsInsideHScene check.
-#if KK
-            if (fbbik == null || Manager.Scene.Instance == null || (!Manager.Scene.Instance.AddSceneName.Equals("HProc") && !ConfigRunOutsideH.Value)) return;
-#elif KKS
-            if (fbbik == null || (!Manager.Scene.AddSceneName.Equals("HProc") && !ConfigRunOutsideH.Value)) return;
-#endif
+
+            if (fbbik == null || (!SceneApi.GetLoadSceneName().Equals("H") && !ConfigRunOutsideH.Value)) return;
 
             if (chara == null)
             {
