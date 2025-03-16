@@ -175,10 +175,7 @@ namespace Koik.IKAmplifier
                 {
                     foreach (var chara in FindObjectsOfType<ChaControl>())
                     {
-                        var fbbik = chara.objAnim.GetComponent<FullBodyBipedIK>();
-                        if (fbbik == null) continue;
-
-                        TryAddAmplifier(fbbik, chara);
+                        TryAddAmplifier(chara.objAnim.GetComponent<FullBodyBipedIK>(), chara);
                     }
                 }
             }

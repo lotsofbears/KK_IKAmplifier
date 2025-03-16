@@ -2,7 +2,7 @@ Description,AnimName (male or female),Female_Body,Female_Shoulder,Female_Thigh,F
 ,,,,,,,,,,,
 Default (Used if particular animation not present),,1,1,1,0,0,1,1,1,0,0
 ,,,,,,,,,,,
-Standing,kha_f_00,1,1,1,0.5,0,,,,,
+Standing,kha_f_00,1,1,0.5,0.5,0,,,,,
 Laying Down,kha_f_01,1,1,1,0.5,0,,,,,
 Hands and Knees,kha_f_02,1,1,1,0,0,,,,,
 ,,,,,,,,,,,

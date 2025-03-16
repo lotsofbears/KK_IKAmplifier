@@ -59,30 +59,20 @@ namespace Koik.IKAmplifier
             /// <summary>
             /// Update on animator's state change since we have non smooth states to avoid weird jumps.
             /// </summary>
-            internal void UpdateRelativePos()
-            {
-                if (transform != null && relativeTo != null)
-                {
-                    lastRelativePos = GetRelativePos;
-                }
-            }
+            internal void UpdateRelativePos() => firstUpdate = true;
 
+            private bool AnyWeight()
+            {
+                foreach (var effector in effectorLinks)
+                {
+                    if (effector.weight > 0f) return true;
+                }
+                return false;
+            }
             // Update the Body
             public void Update(IKSolverFullBodyBiped solver, float w, float deltaTime)
             {
-                if (transform == null || relativeTo == null) return;
-
-                var validWeight = false;
-
-                foreach (var effectorLink in effectorLinks)
-                {
-                    if (effectorLink.weight != 0f)
-                    {
-                        validWeight = true;
-                        break;
-                    }
-                }
-                if (!validWeight) return;
+                if (transform == null || relativeTo == null || !AnyWeight()) return;
 
                 var relativePos = GetRelativePos;
 
@@ -90,6 +80,7 @@ namespace Koik.IKAmplifier
                 if (firstUpdate)
                 {
                     lastRelativePos = relativePos;
+                    //smoothDelta = Vector3.zero;
                     firstUpdate = false;
                 }
 
