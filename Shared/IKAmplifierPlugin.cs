@@ -106,6 +106,7 @@ namespace Koik.IKAmplifier
         public static ConfigEntry<bool> ConfigWeirdTransition { get; set; }
 #endif
         public static ConfigEntry<bool> ConfigRunOutsideH {  get; set; }
+        public static ConfigEntry<bool> ConfigReloadCSV { get; set; }
 
 #endregion
 
@@ -239,10 +240,15 @@ namespace Koik.IKAmplifier
 #endif
             ConfigRunOutsideH = Config.Bind("", "Run outside H", false,
                 new ConfigDescription(
-                    "Add amplifier whenever IK is active.",
+                    "Add amplifier whenever IK is active",
                     null,
                     new ConfigurationManagerAttributes { Order = 60 }));
 
+            ConfigReloadCSV = Config.Bind("", "Reload CSV", false,
+                new ConfigDescription(
+                    "Switch state of this setting to reload CSV file",
+                    null,
+                    new ConfigurationManagerAttributes { Order = 50 }));
 
             ConfigWeightWeak = Config.Bind("Weight by Animation Type", "Weak", 1f,
                 new ConfigDescription(
@@ -275,8 +281,19 @@ namespace Koik.IKAmplifier
             ConfigWeightMale.SettingChanged += (_, _1) => UpdateWeight();
             ConfigWeightFemale.SettingChanged += (_, _1) => UpdateWeight();
             ConfigSpeedGlobal.SettingChanged += (_, _1) => UpdateSpeed();
+            ConfigReloadCSV.SettingChanged += (_, _1) => ReloadCSV(); 
         }
 
+        private void ReloadCSV()
+        {
+            if (_animParamDic.Count > 0)
+            {
+                _animParamDic.Clear();
+                _defaultAnimParamMale = null;
+            }
+            ReadCSV();
+            OnAnimatorsChange();
+        }
         private void UpdateWeight()
         {
             foreach (var kv in _amplifierDic)
