@@ -31,4 +31,4 @@ using Koik.IKAmplifier;
 //      Revision
 //
 [assembly: AssemblyVersion(IKAmplifierPlugin.Version)]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyFileVersion(IKAmplifierPlugin.Version)]
