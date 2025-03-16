@@ -1,15 +1,16 @@
 ﻿using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using Koik.IKAmplifier;
 
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("KKS_IKAmplifier.VR")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle(IKAmplifierPlugin.Name)]
+[assembly: AssemblyDescription("Amplifies animations with active IK")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("KKS_IKAmplifier.VR")]
+[assembly: AssemblyCompany("https://github.com/lotsofbears/KK_IKAmplifier")]
+[assembly: AssemblyProduct(IKAmplifierPlugin.Name)]
 [assembly: AssemblyCopyright("Copyright ©  2025")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -29,5 +30,5 @@ using System.Runtime.InteropServices;
 //      Build Number
 //      Revision
 //
-[assembly: AssemblyVersion("1.0.0.0")]
+[assembly: AssemblyVersion(IKAmplifierPlugin.Version)]
 [assembly: AssemblyFileVersion("1.0.0.0")]

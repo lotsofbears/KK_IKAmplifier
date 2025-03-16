@@ -76,7 +76,7 @@ namespace Koik.IKAmplifier
         public const string GUID = "kks.ik.amplifier";
 #endif
 #endif
-        public const string Version = "1.0.0";
+        public const string Version = "1.1.0";
 
         public new static ManualLogSource Logger;
 
@@ -88,8 +88,7 @@ namespace Koik.IKAmplifier
         private readonly Dictionary<ChaControl, Amplifier> _amplifierDic = [];
 
         private readonly Dictionary<string, AnimParam> _animParamDic = [];
-        //private AnimParam _currentAnimParam;
-        //private readonly AnimParam _defaultAnimParam = new(1f, 1f, 1f, 0f, 0f);
+
         private AnimParam _defaultAnimParamMale;
         private AnimParam _defaultAnimParamFemale;
 

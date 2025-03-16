@@ -10,6 +10,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Amplifier.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AssemblyInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)OffsetModifier.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)IKAmplifierPlugin.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Patches.cs" />
