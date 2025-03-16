@@ -1,5 +1,5 @@
 # KK_IKAmplifier
-A Plugin for Koikatsu and Koikatsu Sunshine that gives an extra oomph to animations in main game when IK is enabled.
+A BepInEx plugin for Koikatsu and Koikatsu Sunshine that gives an extra oomph to animations in main game when IK is enabled.
 
 ## Installation
 1. Install dependencies: 
